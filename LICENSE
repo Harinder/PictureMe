@@ -1,1 +1,14 @@
 Public Domain
+
+A few helper functions were pulled from the web.  Those are listed here and are excluded from this license:
+
+UIDeviceAdditions.h - http://developers.enormego.com/view/iphone_sdk_available_memory
+UIDeviceAdditions.m
+
+UIImagePickerController modes from: http://www.codza.com/custom-uiimagepickercontroller-camera-view
+
+UIImageOpenCV.h - http://niw.at/articles/2009/03/14/using-opencv-on-iphone/en
+UIImageOpenCV.m  
+
+UIImageResizing.h - Pulled from various blogs/forums. 
+UIImageResizing.m
