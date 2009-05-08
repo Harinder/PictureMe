@@ -14,6 +14,8 @@
     
     UIActivityIndicatorView *activity;
     UILabel *activityLabel;
+    
+    BOOL isFirstView;
 }
 
 @property (nonatomic, retain) CameraController *camera;

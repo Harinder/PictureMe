@@ -22,13 +22,13 @@ extern CGImageRef UIGetScreenImage();
 
 static CvMemStorage *storage = 0;
 
+static CameraController *instance = nil;
+
 @implementation CameraController
 
 @synthesize faceTimer;
 @synthesize previewTimer;
 @synthesize model;
-
-static CameraController *instance = nil;
 
 + (CameraController *)instance {
 	@synchronized(self) {
@@ -64,6 +64,19 @@ static CameraController *instance = nil;
 - (void)deviceOrientationDidChange:(id)ignore {
     UIDevice *device = [UIDevice currentDevice];
     o = device.orientation;
+}
+
+- (BOOL)specialCase {
+    UIView *verify = [[[[[[[[self.view subviews] objectAtIndex:0]
+                           subviews] objectAtIndex:0]
+                         subviews] objectAtIndex:0]
+                       subviews] objectAtIndex:0];        
+    
+    if([[verify subviews] count] > 0) {
+        return true;
+    } else {
+        return false;
+    }    
 }
 
 -(NSString *)stringPad:(int)numPad {
@@ -128,7 +141,7 @@ static CameraController *instance = nil;
     }
     
 #if !TARGET_IPHONE_SIMULATOR
-        
+    
     CGImageRef screen = UIGetScreenImage();
     UIImage *viewImage = [UIImage imageWithCGImage:screen];
     CGImageRelease(screen);
@@ -177,12 +190,25 @@ static CameraController *instance = nil;
         
         //[NSThread sleepForTimeInterval:.25f];
         
-        UIButton *button = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:3]
-                                                 subviews] objectAtIndex:2]
-                                                 subviews] objectAtIndex:1];
+        UIButton *button;
+        if([self specialCase]) {
+            button = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:2]
+                                               subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:1]
+                                               subviews] objectAtIndex:0];
+            
+        } else {
+            button = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:3]
+                                           subviews] objectAtIndex:2]
+                                           subviews] objectAtIndex:1];
+        }
         
         [button sendActionsForControlEvents:UIControlEventTouchUpInside];  
     } else {
@@ -203,13 +229,21 @@ static CameraController *instance = nil;
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
--(void)reschedule {
+-(void)reschedule:(NSTimeInterval) delay {
     if(!isPreview && isDisplayed) {
-        self.faceTimer = [NSTimer scheduledTimerWithTimeInterval:.10 
+        self.faceTimer = [NSTimer scheduledTimerWithTimeInterval:delay
                                                           target:self 
                                                         selector:@selector(detectFace) 
                                                         userInfo:nil repeats:YES];    
     }
+}
+
+-(void)reschedule {
+    [self reschedule:.10];
+}
+
+-(void)rescheduleDelayed {
+    [self reschedule:1];
 }
 
 -(void)detectFace {
@@ -219,17 +253,108 @@ static CameraController *instance = nil;
 
 -(void)previewCheck {
     
-    UIView *preview = [[[[[[[[self.view subviews] objectAtIndex:0]
-                            subviews] objectAtIndex: 0]
-                          subviews] objectAtIndex: 0]
-                        subviews] objectAtIndex: 2];
-    
-    // preview view path is /0/0/0/2, by default without a subview
-    // if it has a subview, preview image is showing, so fix transform
-    //
-    if ([preview.subviews count] != 0 && !isPreview) {
-        isPreview = YES;
+    UIView *preview;
+    if([self specialCase]) {
+        // Preview view path is /0/0/0/0/2.
+        preview = [[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                      subviews] objectAtIndex:0]
+                                      subviews] objectAtIndex:0]
+                                      subviews] objectAtIndex:0]
+                                      subviews] objectAtIndex:2];
+        
+        if([preview.subviews count] == 0 && !isPreview) {
+            isPreview = YES;
+        }
+
+    } else {
+        // Preview view path is /0/0/0/2, by default without a subview
+        // if it has a subview, preview image is showing, so fix transform
+        //        
+        preview = [[[[[[[[self.view subviews] objectAtIndex:0]
+                                    subviews] objectAtIndex:0]
+                                    subviews] objectAtIndex:0]
+                                    subviews] objectAtIndex:2];
+        
+        if ([preview.subviews count] != 0 && !isPreview) {
+            isPreview = YES;
+        }        
     }
+    
+}
+
+- (void)setup2x { 
+    UIImageView *overlay = [[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:0]
+                                               subviews] objectAtIndex:3]
+                                               subviews] objectAtIndex:0];  
+    
+    UILabel *label = [[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                         subviews] objectAtIndex:0]
+                                         subviews] objectAtIndex:0]
+                                         subviews] objectAtIndex:3]
+                                         subviews] objectAtIndex:1];
+    
+    UIButton *button = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                             subviews] objectAtIndex:0]
+                                             subviews] objectAtIndex:0]
+                                             subviews] objectAtIndex:3]
+                                             subviews] objectAtIndex:2]
+                                             subviews] objectAtIndex:0];
+    
+    [button addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *captureButton = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                                    subviews] objectAtIndex:0]
+                                                    subviews] objectAtIndex:0]
+                                                    subviews] objectAtIndex:3]
+                                                    subviews] objectAtIndex:2]
+                                                    subviews] objectAtIndex:1];
+    
+    [captureButton addTarget:self action:@selector(captureButtonAction:) forControlEvents:UIControlEventTouchUpInside];        
+    
+    label.hidden = YES;
+    overlay.hidden = YES;        
+    
+}
+
+- (void)setup3x {
+    // /0/0/0/0/2/0/0/0/1
+    UIButton *retakeButton = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:2]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0];
+
+    [retakeButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+    // /0/0/0/0/2/0/1/1
+    UIButton *cancelButton = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:2]
+                                                       subviews] objectAtIndex:0]
+                                                       subviews] objectAtIndex:1]
+                                                       subviews] objectAtIndex:1];
+
+    [cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *captureButton = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                                        subviews] objectAtIndex:0]
+                                                        subviews] objectAtIndex:0]
+                                                        subviews] objectAtIndex:0]
+                                                        subviews] objectAtIndex:2]
+                                                        subviews] objectAtIndex:0]
+                                                        subviews] objectAtIndex:1]
+                                                        subviews] objectAtIndex:0];
+
+    [captureButton addTarget:self action:@selector(captureButtonAction:) forControlEvents:UIControlEventTouchUpInside];        
+
+    
 }
 
 - (void)viewDidAppear: (BOOL)animated {
@@ -239,9 +364,9 @@ static CameraController *instance = nil;
     isDisplayed = YES;
     
     self.faceTimer = [NSTimer scheduledTimerWithTimeInterval:.25 
-														 target:self 
-                                                       selector:@selector(detectFace) 
-                                                       userInfo:nil repeats:YES];
+                                                      target:self 
+                                                    selector:@selector(detectFace) 
+                                                    userInfo:nil repeats:YES];
 
     self.previewTimer = [NSTimer scheduledTimerWithTimeInterval:.25
                                                          target:self
@@ -249,43 +374,17 @@ static CameraController *instance = nil;
                                                        userInfo:nil repeats:YES];    
     
 #if !TARGET_IPHONE_SIMULATOR
-  
+    
     [self inspectView:self.view depth:0 path:@""];
     
-//#if 0
     if(self.sourceType == UIImagePickerControllerSourceTypeCamera) {
-        UIImageView *overlay = [[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                       subviews] objectAtIndex:0]
-                                     subviews] objectAtIndex:0]
-                                  subviews] objectAtIndex:3]
-                                subviews] objectAtIndex:0];  
-        
-        UILabel *label = [[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                subviews] objectAtIndex:0]
-                              subviews] objectAtIndex:0]
-                            subviews] objectAtIndex:3]
-                          subviews] objectAtIndex:1];
-                
-        UIButton *button = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                     subviews] objectAtIndex:0]
-                                   subviews] objectAtIndex:0]
-                                 subviews] objectAtIndex:3]
-                               subviews] objectAtIndex:2]
-                             subviews] objectAtIndex:0];
-        
-        [button addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton *captureButton = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                     subviews] objectAtIndex:0]
-                                   subviews] objectAtIndex:0]
-                                 subviews] objectAtIndex:3]
-                               subviews] objectAtIndex:2]
-                             subviews] objectAtIndex:1];
-        
-        [captureButton addTarget:self action:@selector(captureButtonAction:) forControlEvents:UIControlEventTouchUpInside];        
-                    
-        label.hidden = YES;
-        overlay.hidden = YES;        
+
+        if([self specialCase]) {
+            [self setup3x];
+        } else {
+            [self setup2x];
+        }
+    
     }
 #endif
 	
@@ -293,14 +392,13 @@ static CameraController *instance = nil;
 
 - (void)captureButtonAction:(id)sender {
     self.faceTimer = nil;
-
 }
 
 - (void)cancelButtonAction:(id)sender {
     
 	if (isPreview) {
         isPreview = NO;
-        [self performSelectorOnMainThread:@selector(reschedule) withObject:nil waitUntilDone:YES];        
+        [self performSelectorOnMainThread:@selector(rescheduleDelayed) withObject:nil waitUntilDone:YES];        
     } else {
         self.faceTimer = nil;
         [self dismissModalViewControllerAnimated:YES];        
@@ -309,11 +407,11 @@ static CameraController *instance = nil;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
     self.faceTimer = nil;
     self.previewTimer = nil;
     isDisplayed = NO;
-	
-	[super viewDidDisappear:animated];
 }
 
 -(void) dealloc {

@@ -24,11 +24,15 @@
     self.camera.delegate = self;
     
     self.activity.hidden = YES;
-    //self.activityLabel.text = @"Loading..."; 
+    
+    isFirstView = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self presentModalViewController:[CameraController instance] animated:YES];
+    if(isFirstView) {
+        [self presentModalViewController:[CameraController instance] animated:YES];
+        isFirstView = NO;
+    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -320,7 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jeremy Collins";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeremy Collins";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TouchCamera_Prefix.pch;
@@ -332,7 +332,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "Picture Me";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ACFFDF8E-D455-45CA-A650-44F74BF8CA90";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D90E1F8C-44B6-427F-9B31-1512B2F4E318";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Release;
