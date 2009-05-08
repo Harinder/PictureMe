@@ -7,21 +7,12 @@
 //
 
 #import "CameraController.h"
+#import "RedactedCameraController.h"
 #import <QuartzCore/QuartzCore.h> 
 #import "AudioToolbox/AudioServices.h"
-#import "UIDeviceAdditions.h"
-
-#define FREE_MEMORY [UIDevice currentDevice].availableMemory
-
-#define OPAQUE_HEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 \
-                                           green:((c>>8)&0xFF)/255.0 \
-                                            blue:(c&0xFF)/255.0 \
-                                           alpha:1.0]
 
 extern CGImageRef UIGetScreenImage();
-
 static CvMemStorage *storage = 0;
-
 static CameraController *instance = nil;
 
 @implementation CameraController
@@ -35,6 +26,13 @@ static CameraController *instance = nil;
         if (instance == nil) {
             instance = [[self alloc] init];
             
+            if([instance respondsToSelector:@selector(isViewLoaded)]) {
+                [instance release];
+                instance = [[RedactedCameraController alloc] init];
+            }
+            
+            // Listen for device orientation changes so we can rotate the 
+            // image accordingly before detecting faces.
             [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];  
             [[NSNotificationCenter defaultCenter] addObserver:instance
                                                      selector:@selector(deviceOrientationDidChange:)
@@ -66,17 +64,14 @@ static CameraController *instance = nil;
     o = device.orientation;
 }
 
-- (BOOL)specialCase {
-    UIView *verify = [[[[[[[[self.view subviews] objectAtIndex:0]
-                           subviews] objectAtIndex:0]
-                         subviews] objectAtIndex:0]
-                       subviews] objectAtIndex:0];        
-    
-    if([[verify subviews] count] > 0) {
-        return true;
-    } else {
-        return false;
-    }    
+- (void)triggerShutter {
+    UIButton *button = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                             subviews] objectAtIndex:0]
+                                             subviews] objectAtIndex:0]
+                                             subviews] objectAtIndex:3]
+                                             subviews] objectAtIndex:2]
+                                             subviews] objectAtIndex:1];
+    [button sendActionsForControlEvents:UIControlEventTouchUpInside];  
 }
 
 -(NSString *)stringPad:(int)numPad {
@@ -130,17 +125,13 @@ static CameraController *instance = nil;
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     [self retain];
-    
-    //NSLog(@"Face Detection starting: %f", FREE_MEMORY);
-    
+        
     self.faceTimer = nil;
     
     if(self.model == nil) {
         NSString *file = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt2.xml" ofType:@"gz"];
         self.model = (CvHaarClassifierCascade *) cvLoad([file cStringUsingEncoding:NSASCIIStringEncoding], 0, 0, 0);
     }
-    
-#if !TARGET_IPHONE_SIMULATOR
     
     CGImageRef screen = UIGetScreenImage();
     UIImage *viewImage = [UIImage imageWithCGImage:screen];
@@ -150,12 +141,14 @@ static CameraController *instance = nil;
     scaled.size.width *= .5;
     scaled.size.height *= .5;
     viewImage = [viewImage scaleImage:scaled];
-    //[UIImage imageWithCGImage:(CGImageRef)cameraView.layer.contents];
     
+    // Convert to grayscale and equalize.  Helps face detection.
     IplImage *snapshot = [viewImage cvGrayscaleImage];
     IplImage *snapshotRotated = cvCloneImage(snapshot);
     cvEqualizeHist(snapshot, snapshot);
     
+    // Rotate image if necessary.  In case phone is being held in 
+    // landscape orientation.
     float angle = 0;
     if(o == UIDeviceOrientationLandscapeLeft) {
         angle = 90;
@@ -184,33 +177,11 @@ static CameraController *instance = nil;
     
     NSLog(@"Face detection time %gms FOUND(%d)", t/((double)cvGetTickFrequency()*1000), faces->total);
         
+    // If a face is found trigger the shutter otherwise perform
+    // face detection again.
     if(faces->total > 0) {
-        
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        
-        //[NSThread sleepForTimeInterval:.25f];
-        
-        UIButton *button;
-        if([self specialCase]) {
-            button = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                               subviews] objectAtIndex:0]
-                                               subviews] objectAtIndex:0]
-                                               subviews] objectAtIndex:0]
-                                               subviews] objectAtIndex:2]
-                                               subviews] objectAtIndex:0]
-                                               subviews] objectAtIndex:1]
-                                               subviews] objectAtIndex:0];
-            
-        } else {
-            button = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                           subviews] objectAtIndex:0]
-                                           subviews] objectAtIndex:0]
-                                           subviews] objectAtIndex:3]
-                                           subviews] objectAtIndex:2]
-                                           subviews] objectAtIndex:1];
-        }
-        
-        [button sendActionsForControlEvents:UIControlEventTouchUpInside];  
+        [self triggerShutter];
     } else {
         [self performSelectorOnMainThread:@selector(reschedule) withObject:nil waitUntilDone:NO];
     }
@@ -219,31 +190,17 @@ static CameraController *instance = nil;
     cvReleaseImage(&snapshotRotated);
     cvReleaseMemStorage(&storage);
     
-#endif
- 
     [pool release];
     [self release];
 }
 
--(void)vibrate {
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-}
-
--(void)reschedule:(NSTimeInterval) delay {
+-(void)reschedule {
     if(!isPreview && isDisplayed) {
-        self.faceTimer = [NSTimer scheduledTimerWithTimeInterval:delay
+        self.faceTimer = [NSTimer scheduledTimerWithTimeInterval:.10
                                                           target:self 
                                                         selector:@selector(detectFace) 
                                                         userInfo:nil repeats:YES];    
     }
-}
-
--(void)reschedule {
-    [self reschedule:.10];
-}
-
--(void)rescheduleDelayed {
-    [self reschedule:1];
 }
 
 -(void)detectFace {
@@ -252,37 +209,25 @@ static CameraController *instance = nil;
 }
 
 -(void)previewCheck {
-    
     UIView *preview;
-    if([self specialCase]) {
-        // Preview view path is /0/0/0/0/2.
-        preview = [[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                      subviews] objectAtIndex:0]
-                                      subviews] objectAtIndex:0]
-                                      subviews] objectAtIndex:0]
-                                      subviews] objectAtIndex:2];
-        
-        if([preview.subviews count] == 0 && !isPreview) {
-            isPreview = YES;
-        }
-
-    } else {
-        // Preview view path is /0/0/0/2, by default without a subview
-        // if it has a subview, preview image is showing, so fix transform
-        //        
-        preview = [[[[[[[[self.view subviews] objectAtIndex:0]
-                                    subviews] objectAtIndex:0]
-                                    subviews] objectAtIndex:0]
-                                    subviews] objectAtIndex:2];
-        
-        if ([preview.subviews count] != 0 && !isPreview) {
-            isPreview = YES;
-        }        
-    }
+    // Preview view path is /0/0/0/2, by default without a subview
+    // if it has a subview, preview image is showing, so fix transform
+    //        
+    preview = [[[[[[[[self.view subviews] objectAtIndex:0]
+                                subviews] objectAtIndex:0]
+                                subviews] objectAtIndex:0]
+                                subviews] objectAtIndex:2];
     
+    if ([preview.subviews count] != 0 && !isPreview) {
+        isPreview = YES;
+    }            
 }
 
-- (void)setup2x { 
+- (void)setup { 
+    
+    // Hide the top bar that says "Take Picture" to give more room for
+    // faces.  Also add targets for TouchUpInside events on the "Cancel"
+    // and shutter buttons.
     UIImageView *overlay = [[[[[[[[[[self.view subviews] objectAtIndex:0]
                                                subviews] objectAtIndex:0]
                                                subviews] objectAtIndex:0]
@@ -314,47 +259,7 @@ static CameraController *instance = nil;
     [captureButton addTarget:self action:@selector(captureButtonAction:) forControlEvents:UIControlEventTouchUpInside];        
     
     label.hidden = YES;
-    overlay.hidden = YES;        
-    
-}
-
-- (void)setup3x {
-    // /0/0/0/0/2/0/0/0/1
-    UIButton *retakeButton = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:2]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0];
-
-    [retakeButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-
-    // /0/0/0/0/2/0/1/1
-    UIButton *cancelButton = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:2]
-                                                       subviews] objectAtIndex:0]
-                                                       subviews] objectAtIndex:1]
-                                                       subviews] objectAtIndex:1];
-
-    [cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *captureButton = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                                        subviews] objectAtIndex:0]
-                                                        subviews] objectAtIndex:0]
-                                                        subviews] objectAtIndex:0]
-                                                        subviews] objectAtIndex:2]
-                                                        subviews] objectAtIndex:0]
-                                                        subviews] objectAtIndex:1]
-                                                        subviews] objectAtIndex:0];
-
-    [captureButton addTarget:self action:@selector(captureButtonAction:) forControlEvents:UIControlEventTouchUpInside];        
-
-    
+    overlay.hidden = YES;
 }
 
 - (void)viewDidAppear: (BOOL)animated {
@@ -373,21 +278,11 @@ static CameraController *instance = nil;
                                                        selector:@selector(previewCheck)
                                                        userInfo:nil repeats:YES];    
     
-#if !TARGET_IPHONE_SIMULATOR
-    
-    [self inspectView:self.view depth:0 path:@""];
+    //[self inspectView:self.view depth:0 path:@""];
     
     if(self.sourceType == UIImagePickerControllerSourceTypeCamera) {
-
-        if([self specialCase]) {
-            [self setup3x];
-        } else {
-            [self setup2x];
-        }
-    
-    }
-#endif
-	
+        [self setup];
+    }	
 }
 
 - (void)captureButtonAction:(id)sender {
@@ -398,7 +293,7 @@ static CameraController *instance = nil;
     
 	if (isPreview) {
         isPreview = NO;
-        [self performSelectorOnMainThread:@selector(rescheduleDelayed) withObject:nil waitUntilDone:YES];        
+        [self performSelectorOnMainThread:@selector(reschedule) withObject:nil waitUntilDone:YES];        
     } else {
         self.faceTimer = nil;
         [self dismissModalViewControllerAnimated:YES];        

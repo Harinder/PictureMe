@@ -17,7 +17,6 @@
 		8726C17D0F746AA700E5D0F8 /* libcvaux.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C1770F746AA700E5D0F8 /* libcvaux.a */; };
 		8726C17E0F746AA700E5D0F8 /* libcxcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C1780F746AA700E5D0F8 /* libcxcore.a */; };
 		8726C1800F746AA800E5D0F8 /* libml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C17A0F746AA700E5D0F8 /* libml.a */; };
-		8726C1B20F746EB500E5D0F8 /* UIDeviceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8726C1A80F746EB500E5D0F8 /* UIDeviceAdditions.m */; };
 		8726C1B30F746EB500E5D0F8 /* UIImageOpenCV.m in Sources */ = {isa = PBXBuildFile; fileRef = 8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */; };
 		8726C1B40F746EB500E5D0F8 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8726C1AD0F746EB500E5D0F8 /* UIImageResizing.m */; };
 		8726C1D30F74700200E5D0F8 /* libstdc++.6.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C1D20F74700200E5D0F8 /* libstdc++.6.0.4.dylib */; };
@@ -31,6 +30,7 @@
 		8726C6490F75ED1B00E5D0F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C6480F75ED1B00E5D0F8 /* CoreLocation.framework */; };
 		876782540F81A21E0025D347 /* PictureMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876782530F81A21E0025D347 /* PictureMeController.m */; };
 		876782830F81A8060025D347 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 876782820F81A8060025D347 /* Default.png */; };
+		879B17830FB4DC1C00A98C7D /* RedactedCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879B17820FB4DC1C00A98C7D /* RedactedCameraController.m */; };
 		87BE9C5F0F6882AD0018340B /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +63,6 @@
 		8726C1780F746AA700E5D0F8 /* libcxcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcxcore.a; path = Libraries/opencv/libcxcore.a; sourceTree = "<group>"; };
 		8726C17A0F746AA700E5D0F8 /* libml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libml.a; path = Libraries/opencv/libml.a; sourceTree = "<group>"; };
 		8726C17B0F746AA700E5D0F8 /* ml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ml.h; path = Libraries/opencv/ml.h; sourceTree = "<group>"; };
-		8726C1A70F746EB500E5D0F8 /* UIDeviceAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDeviceAdditions.h; path = Classes/Utilities/UIDeviceAdditions.h; sourceTree = "<group>"; };
-		8726C1A80F746EB500E5D0F8 /* UIDeviceAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIDeviceAdditions.m; path = Classes/Utilities/UIDeviceAdditions.m; sourceTree = "<group>"; };
 		8726C1A90F746EB500E5D0F8 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageAdditions.h; path = Classes/Utilities/UIImageAdditions.h; sourceTree = "<group>"; };
 		8726C1AA0F746EB500E5D0F8 /* UIImageOpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageOpenCV.h; path = Classes/Utilities/UIImageOpenCV.h; sourceTree = "<group>"; };
 		8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageOpenCV.m; path = Classes/Utilities/UIImageOpenCV.m; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		876782520F81A21E0025D347 /* PictureMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureMeController.h; sourceTree = "<group>"; };
 		876782530F81A21E0025D347 /* PictureMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureMeController.m; sourceTree = "<group>"; };
 		876782820F81A8060025D347 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		879B17810FB4DC1C00A98C7D /* RedactedCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedactedCameraController.h; sourceTree = "<group>"; };
+		879B17820FB4DC1C00A98C7D /* RedactedCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedactedCameraController.m; sourceTree = "<group>"; };
 		87BE9C5D0F6882AD0018340B /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
 		87BE9C5E0F6882AD0018340B /* CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +118,8 @@
 				1D3623250D0F684500981E51 /* TouchCameraAppDelegate.m */,
 				87BE9C5D0F6882AD0018340B /* CameraController.h */,
 				87BE9C5E0F6882AD0018340B /* CameraController.m */,
+				879B17810FB4DC1C00A98C7D /* RedactedCameraController.h */,
+				879B17820FB4DC1C00A98C7D /* RedactedCameraController.m */,
 				876782520F81A21E0025D347 /* PictureMeController.h */,
 				876782530F81A21E0025D347 /* PictureMeController.m */,
 			);
@@ -213,8 +215,6 @@
 		8726C1A60F746EA700E5D0F8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8726C1A70F746EB500E5D0F8 /* UIDeviceAdditions.h */,
-				8726C1A80F746EB500E5D0F8 /* UIDeviceAdditions.m */,
 				8726C1A90F746EB500E5D0F8 /* UIImageAdditions.h */,
 				8726C1AA0F746EB500E5D0F8 /* UIImageOpenCV.h */,
 				8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */,
@@ -284,10 +284,10 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* TouchCameraAppDelegate.m in Sources */,
 				87BE9C5F0F6882AD0018340B /* CameraController.m in Sources */,
-				8726C1B20F746EB500E5D0F8 /* UIDeviceAdditions.m in Sources */,
 				8726C1B30F746EB500E5D0F8 /* UIImageOpenCV.m in Sources */,
 				8726C1B40F746EB500E5D0F8 /* UIImageResizing.m in Sources */,
 				876782540F81A21E0025D347 /* PictureMeController.m in Sources */,
+				879B17830FB4DC1C00A98C7D /* RedactedCameraController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

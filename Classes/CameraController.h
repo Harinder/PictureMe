@@ -29,4 +29,10 @@
 
 + (CameraController *)instance;
 
+- (void)setup;
+
+- (void)triggerShutter;
+
+- (void)previewCheck;
+
 @end
