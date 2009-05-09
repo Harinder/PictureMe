@@ -134,6 +134,7 @@ static CameraController *instance = nil;
     // face detection again.
     if(faces->total > 0) {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        [NSThread sleepForTimeInterval:1];
         [self triggerShutter];
     } else {
         [self performSelectorOnMainThread:@selector(reschedule) withObject:nil waitUntilDone:NO];

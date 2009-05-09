@@ -51,14 +51,37 @@
 }
 
 - (void)triggerShutter {
-    UIButton *button = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:2]
-                                                 subviews] objectAtIndex:0]
-                                                 subviews] objectAtIndex:1]
-                                                 subviews] objectAtIndex:0];
+    
+    // Initial is        /0/0/0/0/2/0/1/0
+    // After "Retake" is /0/0/0/0/2/0/0/0
+    UIView *view = [[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                         subviews] objectAtIndex:0]
+                                         subviews] objectAtIndex:0]
+                                         subviews] objectAtIndex:0]
+                                         subviews] objectAtIndex:2]
+                                         subviews] objectAtIndex:0];
+
+    UIButton *button;
+    if([view.subviews count] == 1) {
+        button = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:2]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0];        
+    } else {
+        button = [[[[[[[[[[[[[[[[self.view subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:2]
+                                           subviews] objectAtIndex:0]
+                                           subviews] objectAtIndex:1]
+                                           subviews] objectAtIndex:0];
+    }
+    
     [button sendActionsForControlEvents:UIControlEventTouchUpInside];  
 }
 
