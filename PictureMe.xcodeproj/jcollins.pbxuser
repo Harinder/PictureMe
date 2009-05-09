@@ -2,14 +2,14 @@
 {
 	1D3623240D0F684500981E51 /* TouchCameraAppDelegate.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {966, 753}}";
+			sepNavIntBoundsRect = "{{0, 0}, {926, 527}}";
 			sepNavSelRange = "{350, 0}";
 			sepNavVisRange = "{0, 496}";
 		};
 	};
 	1D3623250D0F684500981E51 /* TouchCameraAppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {926, 777}}";
+			sepNavIntBoundsRect = "{{0, 0}, {926, 527}}";
 			sepNavSelRange = "{543, 0}";
 			sepNavVisRange = "{0, 616}";
 		};
@@ -248,7 +248,7 @@
 		fRef = 8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */;
 		name = "UIImageOpenCV.m: 41";
 		rLen = 0;
-		rLoc = 1248;
+		rLoc = 1233;
 		rType = 0;
 		vrLen = 2037;
 		vrLoc = 0;
@@ -258,7 +258,7 @@
 		fRef = 8726C1AD0F746EB500E5D0F8 /* UIImageResizing.m */;
 		name = "UIImageResizing.m: 195";
 		rLen = 0;
-		rLoc = 6573;
+		rLoc = 1871;
 		rType = 0;
 		vrLen = 1597;
 		vrLoc = 0;
@@ -278,7 +278,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 296";
 		rLen = 0;
-		rLoc = 11044;
+		rLoc = 9166;
 		rType = 0;
 		vrLen = 1714;
 		vrLoc = 9539;
@@ -318,30 +318,37 @@
 	};
 	8726C1A90F746EB500E5D0F8 /* UIImageAdditions.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {926, 550}}";
+			sepNavIntBoundsRect = "{{0, 0}, {926, 527}}";
 			sepNavSelRange = "{55, 0}";
 			sepNavVisRange = "{0, 55}";
 		};
 	};
 	8726C1AA0F746EB500E5D0F8 /* UIImageOpenCV.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1010, 540}}";
-			sepNavSelRange = "{323, 0}";
-			sepNavVisRange = "{0, 336}";
+			sepNavIntBoundsRect = "{{0, 0}, {926, 527}}";
+			sepNavSelRange = "{23, 0}";
+			sepNavVisRange = "{0, 321}";
 		};
 	};
 	8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {926, 3080}}";
-			sepNavSelRange = "{1248, 0}";
-			sepNavVisRange = "{0, 2037}";
+			sepNavIntBoundsRect = "{{0, 0}, {926, 3220}}";
+			sepNavSelRange = "{23, 0}";
+			sepNavVisRange = "{0, 1162}";
+		};
+	};
+	8726C1AC0F746EB500E5D0F8 /* UIImageResizing.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {926, 527}}";
+			sepNavSelRange = "{232, 0}";
+			sepNavVisRange = "{0, 237}";
 		};
 	};
 	8726C1AD0F746EB500E5D0F8 /* UIImageResizing.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1193, 3388}}";
-			sepNavSelRange = "{6502, 36}";
-			sepNavVisRange = "{6246, 517}";
+			sepNavIntBoundsRect = "{{0, 0}, {926, 826}}";
+			sepNavSelRange = "{1871, 0}";
+			sepNavVisRange = "{0, 1228}";
 		};
 	};
 	8726C2060F74729700E5D0F8 /* PBXTextBookmark */ = {
@@ -349,7 +356,7 @@
 		fRef = 8726C1AA0F746EB500E5D0F8 /* UIImageOpenCV.h */;
 		name = "UIImageOpenCV.h: 18";
 		rLen = 0;
-		rLoc = 323;
+		rLoc = 308;
 		rType = 0;
 		vrLen = 336;
 		vrLoc = 0;
@@ -359,7 +366,7 @@
 		fRef = 8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */;
 		name = "UIImageOpenCV.m: 202";
 		rLen = 0;
-		rLoc = 7258;
+		rLoc = 7243;
 		rType = 0;
 		vrLen = 1360;
 		vrLoc = 6097;
@@ -369,7 +376,7 @@
 		fRef = 8726C1AA0F746EB500E5D0F8 /* UIImageOpenCV.h */;
 		name = "UIImageOpenCV.h: 18";
 		rLen = 0;
-		rLoc = 323;
+		rLoc = 308;
 		rType = 0;
 		vrLen = 336;
 		vrLoc = 0;
@@ -379,7 +386,7 @@
 		fRef = 8726C1AD0F746EB500E5D0F8 /* UIImageResizing.m */;
 		name = "UIImageResizing.m: 190";
 		rLen = 0;
-		rLoc = 6318;
+		rLoc = 1871;
 		rType = 0;
 		vrLen = 1409;
 		vrLoc = 5907;
@@ -445,7 +452,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 246";
 		rLen = 0;
-		rLoc = 7265;
+		rLoc = 5441;
 		rType = 0;
 		vrLen = 1440;
 		vrLoc = 14369;
@@ -465,7 +472,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 296";
 		rLen = 0;
-		rLoc = 11044;
+		rLoc = 9166;
 		rType = 0;
 		vrLen = 2486;
 		vrLoc = 8396;
@@ -485,7 +492,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 397";
 		rLen = 0;
-		rLoc = 11521;
+		rLoc = 9633;
 		rType = 0;
 		vrLen = 1215;
 		vrLoc = 13740;
@@ -525,7 +532,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 387";
 		rLen = 63;
-		rLoc = 11284;
+		rLoc = 9401;
 		rType = 0;
 		vrLen = 1215;
 		vrLoc = 13740;
@@ -545,7 +552,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 396";
 		rLen = 0;
-		rLoc = 11501;
+		rLoc = 9613;
 		rType = 0;
 		vrLen = 1284;
 		vrLoc = 13671;
@@ -575,7 +582,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 396";
 		rLen = 0;
-		rLoc = 11501;
+		rLoc = 9613;
 		rType = 0;
 		vrLen = 1284;
 		vrLoc = 13671;
@@ -595,7 +602,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 248";
 		rLen = 0;
-		rLoc = 7423;
+		rLoc = 5599;
 		rType = 0;
 		vrLen = 2063;
 		vrLoc = 7867;
@@ -615,7 +622,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 397";
 		rLen = 0;
-		rLoc = 11523;
+		rLoc = 9635;
 		rType = 0;
 		vrLen = 1222;
 		vrLoc = 13752;
@@ -635,7 +642,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 335";
 		rLen = 0;
-		rLoc = 10078;
+		rLoc = 8254;
 		rType = 0;
 		vrLen = 1637;
 		vrLoc = 825;
@@ -665,7 +672,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 403";
 		rLen = 0;
-		rLoc = 11600;
+		rLoc = 9712;
 		rType = 0;
 		vrLen = 1222;
 		vrLoc = 13756;
@@ -705,7 +712,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 246";
 		rLen = 0;
-		rLoc = 7265;
+		rLoc = 5441;
 		rType = 0;
 		vrLen = 1440;
 		vrLoc = 14369;
@@ -725,7 +732,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 246";
 		rLen = 0;
-		rLoc = 7265;
+		rLoc = 5441;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 14302;
@@ -769,7 +776,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 246";
 		rLen = 0;
-		rLoc = 7265;
+		rLoc = 5441;
 		rType = 0;
 		vrLen = 1234;
 		vrLoc = 14302;
@@ -811,7 +818,7 @@
 		comments = "warning: incomplete implementation of class 'CameraController'";
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		rLen = 1;
-		rLoc = 318;
+		rLoc = 267;
 		rType = 1;
 	};
 	879B17860FB4DC2D00A98C7D /* PBXTextBookmark */ = {
@@ -819,7 +826,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 414";
 		rLen = 5;
-		rLoc = 11626;
+		rLoc = 9738;
 		rType = 0;
 		vrLen = 158;
 		vrLoc = 15366;
@@ -849,7 +856,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 256";
 		rLen = 0;
-		rLoc = 10078;
+		rLoc = 8254;
 		rType = 0;
 		vrLen = 1992;
 		vrLoc = 8881;
@@ -869,7 +876,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 246";
 		rLen = 0;
-		rLoc = 7265;
+		rLoc = 5441;
 		rType = 0;
 		vrLen = 1234;
 		vrLoc = 14302;
@@ -889,7 +896,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 246";
 		rLen = 0;
-		rLoc = 7265;
+		rLoc = 5441;
 		rType = 0;
 		vrLen = 1489;
 		vrLoc = 5103;
@@ -909,7 +916,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 254";
 		rLen = 19;
-		rLoc = 7401;
+		rLoc = 5577;
 		rType = 0;
 		vrLen = 1420;
 		vrLoc = 8451;
@@ -999,7 +1006,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 183";
 		rLen = 0;
-		rLoc = 6611;
+		rLoc = 4787;
 		rType = 0;
 		vrLen = 2487;
 		vrLoc = 5091;
@@ -1019,7 +1026,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 205";
 		rLen = 538;
-		rLoc = 7401;
+		rLoc = 5577;
 		rType = 0;
 		vrLen = 2097;
 		vrLoc = 6493;
@@ -1039,7 +1046,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 256";
 		rLen = 0;
-		rLoc = 10078;
+		rLoc = 8254;
 		rType = 0;
 		vrLen = 1992;
 		vrLoc = 8881;
@@ -1109,7 +1116,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 296";
 		rLen = 0;
-		rLoc = 11196;
+		rLoc = 9313;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 10076;
@@ -1179,7 +1186,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 296";
 		rLen = 0;
-		rLoc = 11196;
+		rLoc = 9313;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 10076;
@@ -1249,7 +1256,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 296";
 		rLen = 0;
-		rLoc = 11196;
+		rLoc = 9313;
 		rType = 0;
 		vrLen = 1791;
 		vrLoc = 0;
@@ -1259,7 +1266,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 296";
 		rLen = 0;
-		rLoc = 11196;
+		rLoc = 9313;
 		rType = 0;
 		vrLen = 1419;
 		vrLoc = 0;
@@ -1269,7 +1276,7 @@
 		fRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */;
 		name = "CameraController.m: 296";
 		rLen = 0;
-		rLoc = 11196;
+		rLoc = 9313;
 		rType = 0;
 		vrLen = 1419;
 		vrLoc = 0;
@@ -1330,8 +1337,8 @@
 	};
 	87BE9C5D0F6882AD0018340B /* CameraController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {926, 800}}";
-			sepNavSelRange = "{241, 23}";
+			sepNavIntBoundsRect = "{{0, 0}, {926, 546}}";
+			sepNavSelRange = "{290, 0}";
 			sepNavVisRange = "{0, 738}";
 		};
 	};
