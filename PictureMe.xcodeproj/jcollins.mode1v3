@@ -257,6 +257,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,6 +269,7 @@
 							<string>1C37FABC04509CD000100104</string>
 							<string>1CC0EA4004350EF90044410B</string>
 							<string>1CC0EA4004350EF90041110B</string>
+							<string>1C37FAAC04509CD000000102</string>
 						</array>
 						<key>PBXProjectModuleGUID</key>
 						<string>1CE0B1FE06471DED0097A5F4</string>
@@ -298,12 +301,13 @@
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>1C37FAAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
-									<integer>7</integer>
+									<integer>2</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -329,7 +333,7 @@
 							<real>249</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>204 143 1280 878 0 0 1680 1028 </string>
+						<string>204 142 1280 878 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -340,14 +344,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RedactedCameraController.m</string>
+								<string>UIImageAdditions.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -355,11 +357,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RedactedCameraController.m</string>
+										<string>UIImageAdditions.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>879B17A50FB4E0D700A98C7D</string>
+										<string>879B17D80FB5071E00A98C7D</string>
 										<key>history</key>
 										<array>
 											<string>8726C2060F74729700E5D0F8</string>
@@ -367,17 +369,17 @@
 											<string>8726C45D0F7553E300E5D0F8</string>
 											<string>87E21AA60F8C176A00919E74</string>
 											<string>87E21B5A0F8D45BE00919E74</string>
-											<string>8715929B0FB269EA00E028B6</string>
 											<string>871592B70FB26A6800E028B6</string>
 											<string>871592B80FB26A6800E028B6</string>
 											<string>871592B90FB26A6800E028B6</string>
 											<string>875221A10FB4CEFA004837D2</string>
-											<string>875221A30FB4CEFA004837D2</string>
-											<string>875221A40FB4CEFA004837D2</string>
-											<string>879B178F0FB4E0D700A98C7D</string>
-											<string>879B17900FB4E0D700A98C7D</string>
-											<string>879B17910FB4E0D700A98C7D</string>
-											<string>879B17920FB4E0D700A98C7D</string>
+											<string>879B17BC0FB5068500A98C7D</string>
+											<string>879B17BD0FB5068500A98C7D</string>
+											<string>879B17BE0FB5068500A98C7D</string>
+											<string>879B17BF0FB5068500A98C7D</string>
+											<string>879B17C00FB5068500A98C7D</string>
+											<string>879B17D60FB5071E00A98C7D</string>
+											<string>8715929B0FB269EA00E028B6</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -413,6 +415,20 @@
 											<string>879B17A20FB4E0D700A98C7D</string>
 											<string>879B17A30FB4E0D700A98C7D</string>
 											<string>879B17A40FB4E0D700A98C7D</string>
+											<string>879B17C20FB5068500A98C7D</string>
+											<string>879B17C30FB5068500A98C7D</string>
+											<string>879B17C40FB5068500A98C7D</string>
+											<string>879B17C50FB5068500A98C7D</string>
+											<string>879B17C60FB5068500A98C7D</string>
+											<string>879B17C70FB5068500A98C7D</string>
+											<string>879B17C80FB5068500A98C7D</string>
+											<string>879B17C90FB5068500A98C7D</string>
+											<string>879B17CA0FB5068500A98C7D</string>
+											<string>879B17CB0FB5068500A98C7D</string>
+											<string>879B17CC0FB5068500A98C7D</string>
+											<string>879B17CD0FB5068500A98C7D</string>
+											<string>879B17CE0FB5068500A98C7D</string>
+											<string>879B17D70FB5071E00A98C7D</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -424,14 +440,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {987, 832}}</string>
+								<string>{{0, 0}, {987, 582}}</string>
 								<key>RubberWindowFrame</key>
-								<string>204 143 1280 878 0 0 1680 1028 </string>
+								<string>204 142 1280 878 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>832pt</string>
+							<string>582pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -444,14 +460,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 837}, {987, 0}}</string>
+								<string>{{0, 587}, {987, 250}}</string>
 								<key>RubberWindowFrame</key>
-								<string>204 143 1280 878 0 0 1680 1028 </string>
+								<string>204 142 1280 878 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>250pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -593,7 +609,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>263512279.53575301</real>
+	<real>263522078.24364501</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -608,12 +624,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>879B17D10FB5068500A98C7D</string>
+		<string>879B17D20FB5068500A98C7D</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>8742688B0DA6CDBA00C4A476</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/jcollins/src/git/PictureMe/PictureMe.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>204 143 1280 878 0 0 1680 1028 </string>
+	<string>204 142 1280 878 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -976,7 +995,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>875221170FB3B622004837D2</string>
+				<string>879B17D00FB5068500A98C7D</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
