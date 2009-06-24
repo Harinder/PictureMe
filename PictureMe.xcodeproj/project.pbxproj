@@ -19,17 +19,17 @@
 		8726C1800F746AA800E5D0F8 /* libml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C17A0F746AA700E5D0F8 /* libml.a */; };
 		8726C1B30F746EB500E5D0F8 /* UIImageOpenCV.m in Sources */ = {isa = PBXBuildFile; fileRef = 8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */; };
 		8726C1B40F746EB500E5D0F8 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8726C1AD0F746EB500E5D0F8 /* UIImageResizing.m */; };
-		8726C1D30F74700200E5D0F8 /* libstdc++.6.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C1D20F74700200E5D0F8 /* libstdc++.6.0.4.dylib */; };
 		8726C2F70F7535C900E5D0F8 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726C2F60F7535C900E5D0F8 /* Icon.png */; };
 		8726C3D60F75458E00E5D0F8 /* Saving.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726C3D50F75458E00E5D0F8 /* Saving.png */; };
 		8726C46A0F75540800E5D0F8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C4690F75540800E5D0F8 /* AudioToolbox.framework */; };
 		8726C4C90F75BF2900E5D0F8 /* haarcascade_frontalface_alt2.xml.gz in Resources */ = {isa = PBXBuildFile; fileRef = 8726C4C80F75BF2900E5D0F8 /* haarcascade_frontalface_alt2.xml.gz */; };
-		8726C4CC0F75BF4700E5D0F8 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C4CB0F75BF4700E5D0F8 /* libz.1.2.3.dylib */; };
 		8726C6420F75ED0C00E5D0F8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C6410F75ED0C00E5D0F8 /* SystemConfiguration.framework */; };
-		8726C6440F75ED0C00E5D0F8 /* libsqlite3.0.8.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C6430F75ED0C00E5D0F8 /* libsqlite3.0.8.6.dylib */; };
 		8726C6490F75ED1B00E5D0F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8726C6480F75ED1B00E5D0F8 /* CoreLocation.framework */; };
 		876782540F81A21E0025D347 /* PictureMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876782530F81A21E0025D347 /* PictureMeController.m */; };
 		876782830F81A8060025D347 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 876782820F81A8060025D347 /* Default.png */; };
+		879115770FF1B8BD00254C6D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 879115760FF1B8BD00254C6D /* libstdc++.dylib */; };
+		8791157C0FF1B8E700254C6D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8791157B0FF1B8E700254C6D /* libsqlite3.dylib */; };
+		879115810FF1B90D00254C6D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 879115800FF1B90D00254C6D /* libz.dylib */; };
 		879B17830FB4DC1C00A98C7D /* RedactedCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879B17820FB4DC1C00A98C7D /* RedactedCameraController.m */; };
 		87BE9C5F0F6882AD0018340B /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE9C5E0F6882AD0018340B /* CameraController.m */; };
 /* End PBXBuildFile section */
@@ -68,18 +68,18 @@
 		8726C1AB0F746EB500E5D0F8 /* UIImageOpenCV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageOpenCV.m; path = Classes/Utilities/UIImageOpenCV.m; sourceTree = "<group>"; };
 		8726C1AC0F746EB500E5D0F8 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageResizing.h; path = Classes/Utilities/UIImageResizing.h; sourceTree = "<group>"; };
 		8726C1AD0F746EB500E5D0F8 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageResizing.m; path = Classes/Utilities/UIImageResizing.m; sourceTree = "<group>"; };
-		8726C1D20F74700200E5D0F8 /* libstdc++.6.0.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.4.dylib"; path = "usr/lib/libstdc++.6.0.4.dylib"; sourceTree = SDKROOT; };
 		8726C2F60F7535C900E5D0F8 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		8726C3D50F75458E00E5D0F8 /* Saving.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Saving.png; path = Resources/Saving.png; sourceTree = "<group>"; };
 		8726C4690F75540800E5D0F8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8726C4C80F75BF2900E5D0F8 /* haarcascade_frontalface_alt2.xml.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; name = haarcascade_frontalface_alt2.xml.gz; path = Libraries/opencv/haarcascade_frontalface_alt2.xml.gz; sourceTree = "<group>"; };
-		8726C4CB0F75BF4700E5D0F8 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		8726C6410F75ED0C00E5D0F8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8726C6430F75ED0C00E5D0F8 /* libsqlite3.0.8.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.8.6.dylib; path = usr/lib/libsqlite3.0.8.6.dylib; sourceTree = SDKROOT; };
 		8726C6480F75ED1B00E5D0F8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		876782520F81A21E0025D347 /* PictureMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureMeController.h; sourceTree = "<group>"; };
 		876782530F81A21E0025D347 /* PictureMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureMeController.m; sourceTree = "<group>"; };
 		876782820F81A8060025D347 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		879115760FF1B8BD00254C6D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/gcc/powerpc-apple-darwin9/4.0.1/libstdc++.dylib"; sourceTree = SDKROOT; };
+		8791157B0FF1B8E700254C6D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		879115800FF1B90D00254C6D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		879B17810FB4DC1C00A98C7D /* RedactedCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedactedCameraController.h; sourceTree = "<group>"; };
 		879B17820FB4DC1C00A98C7D /* RedactedCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedactedCameraController.m; sourceTree = "<group>"; };
 		87BE9C5D0F6882AD0018340B /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
@@ -99,12 +99,12 @@
 				8726C17D0F746AA700E5D0F8 /* libcvaux.a in Frameworks */,
 				8726C17E0F746AA700E5D0F8 /* libcxcore.a in Frameworks */,
 				8726C1800F746AA800E5D0F8 /* libml.a in Frameworks */,
-				8726C1D30F74700200E5D0F8 /* libstdc++.6.0.4.dylib in Frameworks */,
 				8726C46A0F75540800E5D0F8 /* AudioToolbox.framework in Frameworks */,
-				8726C4CC0F75BF4700E5D0F8 /* libz.1.2.3.dylib in Frameworks */,
 				8726C6420F75ED0C00E5D0F8 /* SystemConfiguration.framework in Frameworks */,
-				8726C6440F75ED0C00E5D0F8 /* libsqlite3.0.8.6.dylib in Frameworks */,
 				8726C6490F75ED1B00E5D0F8 /* CoreLocation.framework in Frameworks */,
+				879115770FF1B8BD00254C6D /* libstdc++.dylib in Frameworks */,
+				8791157C0FF1B8E700254C6D /* libsqlite3.dylib in Frameworks */,
+				879115810FF1B90D00254C6D /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,12 +143,12 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				8726C1D20F74700200E5D0F8 /* libstdc++.6.0.4.dylib */,
 				8726C4690F75540800E5D0F8 /* AudioToolbox.framework */,
-				8726C4CB0F75BF4700E5D0F8 /* libz.1.2.3.dylib */,
 				8726C6410F75ED0C00E5D0F8 /* SystemConfiguration.framework */,
-				8726C6430F75ED0C00E5D0F8 /* libsqlite3.0.8.6.dylib */,
 				8726C6480F75ED1B00E5D0F8 /* CoreLocation.framework */,
+				879115760FF1B8BD00254C6D /* libstdc++.dylib */,
+				8791157B0FF1B8E700254C6D /* libsqlite3.dylib */,
+				879115800FF1B90D00254C6D /* libz.dylib */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -308,11 +308,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries/opencv\"",
-					"\"$(SRCROOT)/Libraries/pinchmedia\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "Picture Me";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D90E1F8C-44B6-427F-9B31-1512B2F4E318";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9386A917-B6EC-4E11-BF69-1D9D9B4453F3";
 			};
 			name = Debug;
 		};
@@ -329,6 +328,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries/opencv\"",
 					"\"$(SRCROOT)/Libraries/pinchmedia\"",
+					"\"$(SDKROOT)/usr/lib/gcc/powerpc-apple-darwin9/4.0.1\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "Picture Me";
@@ -363,6 +363,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries/opencv\"",
 					"\"$(SRCROOT)/Libraries/pinchmedia\"",
+					"\"$(SDKROOT)/usr/lib/gcc/powerpc-apple-darwin9/4.0.1\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "Picture Me";
