@@ -7,21 +7,44 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CameraController.h"
+#import "UIImage-Additions.h"
+#import "PictureMeCameraBar.h"
+#import "PictureMePreviewBar.h"
+#import "PictureMeImageView.h"
+
 
 @interface PictureMeController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
-    CameraController *camera;
+    UIDeviceOrientation orientation;
+    UIImagePickerController *camera;
+    PictureMeImageView *imageView;
+    UIImage *image;
+    CGRect face;
     
-    UIActivityIndicatorView *activity;
-    UILabel *activityLabel;
+    CvHaarClassifierCascade *model;
     
-    BOOL isFirstView;
+    PictureMeCameraBar *camerabar;
+    PictureMePreviewBar *previewbar;
+    
+    BOOL detecting;
 }
 
-@property (nonatomic, retain) CameraController *camera;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity;
-@property (nonatomic, retain) IBOutlet UILabel *activityLabel;
+
+@property (nonatomic, retain) UIImagePickerController *camera;
+@property (nonatomic, assign) CvHaarClassifierCascade *model;
+@property (assign) BOOL detecting;
+
 
 - (void)savedImage:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+
+- (void)takePicture;
+
+- (void)retakePicture;
+
+- (void)usePicture;
+
+- (void)startDetection;
+
+- (void)stopDetection;
+
 
 @end

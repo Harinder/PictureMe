@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CameraController.h"
 #import "PictureMeController.h"
 
-@interface TouchCameraAppDelegate : NSObject <UIApplicationDelegate> {
+@interface PictureMeAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
     PictureMeController *main;
 }

@@ -5,10 +5,16 @@
 //  Copyright 2009 Jeremy Collins. All rights reserved.
 //
 
+
 #import <Foundation/Foundation.h>
+
 
 @interface UIImage (Resize)
 
+
 - (UIImage *)scaleImage:(CGRect)rect;
+
+- (UIImage *) imageCroppedToRect:(CGRect)cropRect;
+
 
 @end

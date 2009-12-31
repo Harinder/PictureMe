@@ -6,22 +6,21 @@
 //  Copyright Jeremy Collins 2009. All rights reserved.
 //
 
-#import "TouchCameraAppDelegate.h"
+#import "PictureMeAppDelegate.h"
 
-@implementation TouchCameraAppDelegate
+
+@implementation PictureMeAppDelegate
+
 
 @synthesize window;
 @synthesize main;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
 
-    // Override point for customization after application launch
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
     [window addSubview:[main view]];
     [window makeKeyAndVisible];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-}
 
 - (void)dealloc {
     [window release];
