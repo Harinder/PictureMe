@@ -1,6 +1,8 @@
 About Picture Me
 ================
 
+**The method used by this app to capture images is no longer allowed on the app store.**
+
 Picture Me uses face detection to determine when to snap the iPhone's camera
 shutter.  Once it detects a face it will take a picture.  Perfect for taking
 self-portraits.
